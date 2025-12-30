@@ -12,6 +12,6 @@ Les évènements de la route sont également enregistrés dans **Sirius** par le
 
 On rend compte ici des principales exploitations réalisées dans ce sens.
 
-:doc:`Croisement CI6TEX SIRIUS 2024<33_comparaison>`
+:doc:`Croisement CI-TEX SIRIUS 2024<33_comparaison>`
 
-:doc:`Croisement CI6TEX SIRIUS 2025<35_comparaison>`
+:doc:`Croisement CI-TEX SIRIUS 2025<35_comparaison>`
