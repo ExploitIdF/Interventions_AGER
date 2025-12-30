@@ -21,10 +21,6 @@ Pour l'analyse des données, il serait utile de connaitre les principales mise �
 
 Exploration des données
 *************************
-:doc:`/1_description`
-
-:doc:`1_description`
-
 Une :doc:`page est consacrée à l'exploration des données sur la période 7/2023-5/2024 <1_description>`. Elle ne reflète sans doute pas l'état plus récent de la qualité des données. 
 
 Chaque nouvelle exploitation doit être vigilente sur la qualité des données et la manière de corriger les bias que cela entraine.
