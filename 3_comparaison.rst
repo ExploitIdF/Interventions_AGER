@@ -8,7 +8,7 @@ Comparaisons CI-TEX & SIRIUS
    33_comparaison
    35_comparaison
 
-Les interventions des CEI sur la route sont également enregistrés dans **Sirius** comme des évènements, par les opérateurs sécurité trafic (OST) et 
+Les interventions des CEI sur la route sont également enregistrées dans **Sirius**, comme des évènements, par les opérateurs sécurité trafic (OST) et 
 la grande majorité des interventions sont liées à des évènements signalés par l'OST ou que le RI notifie à l'OST. 
 On s'attend donc à trouver une bonne correspondance entre les fiches d'intervention des AGER/CEI (CI-TEX) et la base des évènement SIRIUS. 
 
