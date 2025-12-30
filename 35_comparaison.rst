@@ -19,7 +19,8 @@ Extraction des données d'interventions
 ****************************************
 On fait une extraction des données à cette adresse : https://dirif.akelio.com/intervention/list   
 **Télécharger fiches complètes**    période 1-11/2025   
-la table contient de nombreuse colonnes dont on garde la liste suivante : 
+
+La table contient de nombreuses colonnes dont on ne garde que la liste suivante : 
 
 * 'CEI', 
 * "Date d'appel", 
@@ -47,19 +48,20 @@ La table obtenue comporte environ 41 000 lignes.
 
 Doublons de fiches d'intervention
 ****************************************
-L'élimination des doublons n'est pas un sujet simple car il faut :
+L'élimination des doublons n'est pas un sujet simple car il faudrait :
 
-* Ne pas conserver plusieurs fiches correspondant à une seule intervention,
-* Ne pas supprimer une fiche qui rend compte d'une intervention à part entière même si elle partage plusieurs caractéristiques (Heure d'appel, CEI, Axe, Sens) avec une autre.
-* Ne pas mettre en place un traitement trop complexe
+* Ne pas conserver plus d'une fiche correspondant à une seule intervention,
+* Ne pas supprimer une fiche qui rend compte d'une intervention à part entière, même si celle-ci partage plusieurs caractéristiques (Heure d'appel, CEI, Axe, Sens) avec une autre intervention.
+* Ne pas mettre en place un traitement trop complexe, difficile à maintenir et à contrôler
 
-On ignore si la présence de plusieurs véhicules doit donner lieu à autant d'interventions différentes ou s'il s'agit d'une seule intervention. 
+On ignore si , dans les principes d'utilisation de CI-TEX, la présence de plusieurs véhicules doit donner lieu à autant d'enregistrements d'interventions différentes 
+ou s'il doit s'agir d'une seule intervention. 
 Dans le cas de SIRIUS, il y aura en général un seul événement.
 
 En dehors des doublons manifestes dont les principales caractéristiques sont identiques, on trouve les cas suivants :
 
-Même axe, même sens, même CEI, faible écart des heures d'appel  
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Même axe, même sens, même CEI, un faible écart des heures d'appel  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 On peut supposer qu'un écart des heures enregistées inférieur à 30 munutes, pour des intervenions du même CEI sur les mêmes axe et sens, traduit deux enregistrements de la même  intervention. 
 Quoi qu'il en soit la mise en relation avec SIRIUS ne pouvant pas se faire sur l'heure exacte, 
 les deux interventions seront associées au même événement SIRIUS s'il en existe un.
@@ -88,6 +90,8 @@ On trouve généralement cette situation avec des axes qui sont voisins :
 * A6a & A4b
 * A104 & N2
 
+Il peut s'agir d'événements au niveau des bretelles d'échange entre les deux axes.
+
 On ne supprime pas ces doublons (environ 280), mais on s'attend à ce qu'un seul événement SIRIUS corresponde aux deux interventions AGER.
 
 Ce sujet mériterait d'être clarifié avec les utilisateurs de CI-TEX.
@@ -96,17 +100,17 @@ Extraction des événements SIRIUS
 ***********************************
 Les données SIRIUS sur les événements sont utilisées par Marc Koenig pour produire des statistiques publiées chaque mois.  
 Marc partage les fichiers mensuels sur COSMOSE au format Excel. Ces fichiers étant partiellement traités à la main, il peut y avoir des différences de format.
-Par exemple, pour le mois de juillet 2025, les données bruts sont sur la seconde feuille, laquelle porte le nom fueille 1 !  
+Par exemple, pour le mois de juillet 2025, les données brutes sont sur la seconde feuille du classeur, laquelle porte le nom feuille 1 !  
 
-Les données étant produite par un système informatique et produite dans un but statistique, elle sont plus *propres* que les données d'intervention.
+Les données étant produites par un système informatique et traitées dans un but statistique, elles sont plus *propres* que les données d'intervention.
 
 Désignation des axes et sens
 *******************************
-Certains axes ne sont pas désignés de la même manière par SIRIUS et par CI-TEX; il faut dont, pour la liaison, établir une correspondance entre les noms des axes dans SIRIUS et dans CI-TEX, au moins pour les principaux axes dont les noms diffèrent.  
+Certains **axes** ne sont pas désignés de la même manière par SIRIUS et par CI-TEX; il faut dont, pour la liaison, établir une correspondance entre les noms des axes dans SIRIUS et dans CI-TEX, au moins pour les principaux axes dont les noms diffèrent.  
 
 Correspondances utilisées : [['A6A','A6a'],['A6B','A6b'],['N118N','N118'],['N104N','N104'],['A104N','A104'],['N_1104','N1104'],['N_1013','N1013'],['CD77N4','CD77'],['N186B','N186'] ]
 
-Pour le sens, il n'est pas toujours renseigné dans CI-TEX ou plusieurs sens sont indiqués. Cette dernière situation porte sur un faible nombre et on a retenu le premier sens indiqué.
+Le **sens** n'est pas toujours renseigné dans CI-TEX ou plusieurs sens sont indiqués. Cette dernière situation porte sur un faible nombre et on a retenu le premier sens indiqué.
 
 Les cas où le sens n'est pas renseignés représentent moins de 2% des interventions et on ne les a pas pris en compte dans le calcul du taux de correspondance. 
 Ce choix conduit à un résultat plus élevé.  C'est un choix discutable car il signifie que l'absence d'information sur le sens, un élément sur lequel la DiRIF 
@@ -116,7 +120,7 @@ Liaison entre les tables
 ***************************
 On fait la liaison sur les champs **date, heure, Axe, Sens**. 
 
-Pour les évènements SIRIUS, on étend la période prise en considération à 30 minutes, avant et après.
+Pour les évènements SIRIUS, on étend la période prise en considération à 30 minutes, avant et après l'heure considérée.
 
 On constate que 59% des interventions ont un correspondant dans la base SIRIUS pour cette liaison. Cette valeur est celle que l'on propose pour l'indicateur recherché.
 
