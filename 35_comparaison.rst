@@ -1,11 +1,19 @@
 Comparaison CI-TEX SIRIUS 2025
 ###################################
-Cette comparaison est prescrite par la démarche qualité de la DiRIF. Le présent document contribue à la traçabilité de la méthode de calcul.
+Cette comparaison est prescrite par la démarche qualité de la DiRIF. La formulation de l'indicateur est : 
+**Nombre d'évènements renseignés dans Sytadin/nombre d'évènements signalés** avec l'objectif de 75%.
+
+On propose une reformulation de l'indicateur : **Nombre d'interventions enregistrées dans CI-TEX qui correspondent à un événement enregistré dans SIRIUS
+divisé par le nombre total d'interventions enregistrées dans CI-TEX**.
+
+**Le résultat du calcul ci-dssous est de 59%**.
+
+Le présent document contribue à la traçabilité de la méthode de calcul.
 
 Cette page rend compte des traitements réalisés pour effectuer la comparaison des données sur les onze premiers mois de l'année 2025.
 On s'est arrêté en novembre car l'exploitation a été faite en décembre 2025.
 
-En note des éléments techniques qui pourront servir à reproduire les traitements l'an prochain pour avoir des résultats comparables.
+On a intégré des éléments techniques qui pourront servir à reproduire les traitements l'an prochain pour avoir un résultat comparable.
 
 Extraction des données d'interventions
 ****************************************
@@ -59,6 +67,7 @@ les deux interventions seront associées au même événement SIRIUS s'il en exi
 
 Ce type de doublons potentiel est significatif puisqu'il porte sur plus de 5% des interventions.
 
+Dans le calcul du taux de correspondance, on n'a pas supprimé ces doublons. 
 
 Même heure, même axe, CEI différents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,13 +98,25 @@ Par exemple, pour le mois de juillet 2025, les données bruts sont sur la second
 
 Les données étant produite par un système informatique et produite dans un but statistique, elle sont plus *propres* que les données d'intervention.
 
-Désignation des axes
-************************
-Certains axe ne sont pas désignés de la même manière par SIRIUS et les AGER, il faut dont établir une correspondance entre les noms SIRIUS et AGER, au moins pour les principaux axes dont les noms diffèrent.  
+Désignation des axes et sens
+*******************************
+Certains axes ne sont pas désignés de la même manière par SIRIUS et par CI-TEX; il faut dont, pour la liaison, établir une correspondance entre les noms des axes dans SIRIUS et dans CI-TEX, au moins pour les principaux axes dont les noms diffèrent.  
 
-Correspondance : [['A6A','A6a'],['A6B','A6b'],['N118N','N118'],['N104N','N104'],['A104N','A104'],['N_1104','N1104'],['N_1013','N1013'],['CD77N4','CD77'],['N186B','N186'] ]
+Correspondances utilisées : [['A6A','A6a'],['A6B','A6b'],['N118N','N118'],['N104N','N104'],['A104N','A104'],['N_1104','N1104'],['N_1013','N1013'],['CD77N4','CD77'],['N186B','N186'] ]
 
+Pour le sens, il n'est pas toujours renseigné dans CI-TEX ou plusieurs sens sont indiqués. Cette dernière situation porte sur un faible nombre et on a retenu le premier sens indiqué.
 
+Les cas où le sens n'est pas renseignés représentent moins de 2% des interventions et on ne les a pas pris en compte dans le calcul du taux de correspondance.
+
+Liaison entre les tables
+***************************
+On fait la liaison sur les champs **date, heure, Axe, Sens**. 
+
+Pour les évènements SIRIUS, on étend la période prise en considération à 30 minutes, avant et après.
+
+On constate que 59% des interventions ont un correspondant dans la base SIRIUS pour cette liaison. Cette valeur est celle que l'on propose pour l'indicateur recherché.
+
+Ce résultat dépend de nombreuses hypothèses que l'on a fait ressortir, autant que possible, dans les explications ci-dessus.
 
 
 
