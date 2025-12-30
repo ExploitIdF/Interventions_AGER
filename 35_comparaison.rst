@@ -1,12 +1,17 @@
 Comparaison CI-TEX SIRIUS 2025
 ###################################
-Cette comparaison est prescrite par la démarche qualité de la DiRIF. La formulation de l'indicateur est : 
-**Nombre d'évènements renseignés dans Sytadin/nombre d'évènements signalés**, avec l'objectif de 75%.
+La comparaison des données CI-TEX & SIRIUS est prescrite par la démarche qualité de la DiRIF. La formulation de l'indicateur est :  
 
-On propose une reformulation de l'indicateur : **Nombre d'interventions enregistrées dans CI-TEX qui correspondent à un événement enregistré dans SIRIUS
+**Nombre d'évènements renseignés dans Sytadin/nombre d'évènements signalés**, 
+
+avec l'objectif de 75%.
+
+On propose une reformulation de l'indicateur : 
+
+**Nombre d'interventions enregistrées dans CI-TEX qui correspondent à un événement enregistré dans SIRIUS
 divisé par le nombre total d'interventions enregistrées dans CI-TEX**.
 
-**Le résultat du calcul ci-dssous est de 59%**.
+**Le résultat du calcul, présenté ci-dessous, est de 59%**.
 
 Le présent document contribue à la traçabilité de la méthode de calcul.
 
@@ -17,8 +22,8 @@ On a intégré des éléments techniques qui pourront servir à reproduire les t
 
 Extraction des données d'interventions
 ****************************************
-On fait une extraction des données à cette adresse : https://dirif.akelio.com/intervention/list   
-**Télécharger fiches complètes**    période 1-11/2025   
+On a fait une extraction des données à cette adresse : https://dirif.akelio.com/intervention/list   
+**Télécharger fiches complètes**    période : 1-11/2025   
 
 La table contient de nombreuses colonnes dont on ne garde que la liste suivante : 
 
@@ -42,11 +47,11 @@ Pou le champ *Heure d'appel* qui intervient dans la liaison, seulement 28 valeur
 
 On remplace certains noms d'axe comme N385 -> A86.
 
-Pour cette exploitation, on n'a pas travaillé sur le champ Localisation dont la valorisation est complexe car il n'est pas renseigné de la même manière par tous les utilisateurs.
+Pour cette exploitation, on n'a pas travaillé sur le champ Localisation dont la valorisation est complexe (voir travaux de 2024) car il n'est pas renseigné de la même manière par tous les utilisateurs.
 
 La table obtenue comporte environ 41 000 lignes.
 
-Doublons de fiches d'intervention
+Doublons de fiches d'interventions
 ****************************************
 L'élimination des doublons n'est pas un sujet simple car il faudrait :
 
