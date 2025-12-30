@@ -3,8 +3,8 @@ Comparaison CI-TEX SIRIUS 2025
 Cette page rend compte des traitements réalisés pour effectuer la comparaison des données sur les onze premiers mois de l'année 2025.
 On s'est arrêté en novembre car l'exploitation a été faite en décembre 2025.
 
-Extraction des données
-**********************
+Extraction des données d'interventions
+****************************************
 On fait une extraction des données à cette adresse : https://dirif.akelio.com/intervention/list   
 **Télécharger fiches complètes**    période 1-11/2025   
 la table contient de nombreuse colonnes dont on garde la liste suivante : 'N° Inter DiRIF','CEI', "Date d'appel", "Heure d'appel","Origine de l'appel",'Axe', 'Sens','Localisation',  "Type d'intervention",
@@ -22,14 +22,29 @@ Pour cette exploitation, on n'a pas travaillé sur le champ Localisation dont la
 La table obtenue comporte environ 41 000 lignes.
 
 Doublons de fiches d'intervention
-***************************************************
+****************************************
 L'élimination des doublons n'est pas un sujet simple car il faut :
 
 * Ne pas conserver plusieurs fiches correspondant à une seule intervention,
 * Ne pas supprimer une fiche qui rend compte d'une intervention à part entière même si elle partage plusieurs caractéristiques (Heure d'appel, CEI, Axe, Sens) avec une autre.
 * Ne pas mettre en place un traitement trop complexe
 
+On ignore si la présence de plusieurs véhicules doit donner lieu à autant d'interventions différentes ou s'il s'agit d'une seule intervention. 
+Dans le cas de SIRIUS, il y aura en général un seul événement.
+
 En dehors des doublons manifestes dont les principales caractéristiques sont identiques, on trouve les cas suivants :
+
+Même axe, même sens, même CEI, faible écart des heures  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+On peut supposer qu'un écart des heures enregistées inférieur à 30 munutes, pour des intervenions du même CEI sur les mêmes axe et sens, traduit deux enregistrements de la même  intervention. 
+Quoi qu'il en soit la mise en relation avec SIRIUS ne pouvant pas se faire sur l'heure exacte, 
+les deux interventions seront associées au même événement SIRIUS s'il en existe un.
+
+* 900 interventions sont enregistrées avec une heure d'appel inférieur à **10 mn** après une intervention du même CEI sur les mêmes axe et sens.
+* 2300 interventions sont enregistrées avec une heure d'appel inférieur à **30 mn** après une intervention du même CEI sur le même axe.
+
+Ce type de doublons potentiel est significatif puisqu'il porte sur plus de 5% des interventions.
+
 
 Même heure, même axe, CEI différents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -52,13 +67,5 @@ On ne supprime pas ces doublons (environ 280), mais on s'attend à ce qu'un seul
 
 Ce sujet mériterait d'être clarifié avec les utilisateurs
 
-
-Même axe, même CEI, faible écart des heures  
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-On peut supposer qu'un écart des heures inférieur à 30 munutes pour une intervenion sur le même axe traduit une seule intervention. Quoi qu'il en soit la mise en relation avec SIRIUS ne pourant pas se faire sur l'heure exacte, 
-les deux interventions seront associées au même  événement SIRIUS s'il en existe un.
-
-* 1400 interventions sont enregistrées avec une heure d'appel inférieur à **10 mn** après une intervention du même CEI sur le même axe.
-* 3900 interventions sont enregistrées avec une heure d'appel inférieur à **30 mn** après une intervention du même CEI sur le même axe.
 
 
