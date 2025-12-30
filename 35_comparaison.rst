@@ -1,7 +1,7 @@
 Comparaison CI-TEX SIRIUS 2025
 ###################################
 Cette comparaison est prescrite par la démarche qualité de la DiRIF. La formulation de l'indicateur est : 
-**Nombre d'évènements renseignés dans Sytadin/nombre d'évènements signalés** avec l'objectif de 75%.
+**Nombre d'évènements renseignés dans Sytadin/nombre d'évènements signalés**, avec l'objectif de 75%.
 
 On propose une reformulation de l'indicateur : **Nombre d'interventions enregistrées dans CI-TEX qui correspondent à un événement enregistré dans SIRIUS
 divisé par le nombre total d'interventions enregistrées dans CI-TEX**.
@@ -36,6 +36,8 @@ On remplace les données manquantes par :
 
 * "00:01" pour  "Heure d'appel" & "Horaire d'arrivée sur le lieu d'intervention"
 * "23:59" pour "Horaire du départ du lieu d'intervention"
+
+Pou le champ *Heure d'appel* qui intervient dans la liaison, seulement 28 valeurs sont nulle, l'impact sur l'indicateur est donc négligeable.
 
 On remplace certains noms d'axe comme N385 -> A86.
 
@@ -88,7 +90,7 @@ On trouve généralement cette situation avec des axes qui sont voisins :
 
 On ne supprime pas ces doublons (environ 280), mais on s'attend à ce qu'un seul événement SIRIUS corresponde aux deux interventions AGER.
 
-Ce sujet mériterait d'être clarifié avec les utilisateurs.
+Ce sujet mériterait d'être clarifié avec les utilisateurs de CI-TEX.
 
 Extraction des événements SIRIUS
 ***********************************
@@ -106,7 +108,9 @@ Correspondances utilisées : [['A6A','A6a'],['A6B','A6b'],['N118N','N118'],['N10
 
 Pour le sens, il n'est pas toujours renseigné dans CI-TEX ou plusieurs sens sont indiqués. Cette dernière situation porte sur un faible nombre et on a retenu le premier sens indiqué.
 
-Les cas où le sens n'est pas renseignés représentent moins de 2% des interventions et on ne les a pas pris en compte dans le calcul du taux de correspondance.
+Les cas où le sens n'est pas renseignés représentent moins de 2% des interventions et on ne les a pas pris en compte dans le calcul du taux de correspondance. 
+Ce choix conduit à un résultat plus élevé.  C'est un choix discutable car il signifie que l'absence d'information sur le sens, un élément sur lequel la DiRIF 
+est susceptible de s'améliorer, n'a pas d'impact sur l'indicateur.
 
 Liaison entre les tables
 ***************************
