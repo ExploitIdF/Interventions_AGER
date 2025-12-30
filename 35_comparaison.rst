@@ -30,6 +30,7 @@ L'élimination des doublons n'est pas un sujet simple car il faut :
 * Ne pas mettre en place un traitement trop complexe
 
 En dehors des doublons manifestes dont les principales caractéristiques sont identiques, on trouve les cas suivants :
+
 Même heure, même axe, CEI différents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Il peut s'agir des interventions de 2 CEI sur le même événement ou sur deux événements différents.  
