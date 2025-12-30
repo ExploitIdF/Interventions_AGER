@@ -1,14 +1,28 @@
 Comparaison CI-TEX SIRIUS 2025
 ###################################
+Cette comparaison est prescrite par la démarche qualité de la DiRIF. Le présent document contribue à la traçabilité de la méthode de calcul.
+
 Cette page rend compte des traitements réalisés pour effectuer la comparaison des données sur les onze premiers mois de l'année 2025.
 On s'est arrêté en novembre car l'exploitation a été faite en décembre 2025.
+
+En note des éléments techniques qui pourront servir à reproduire les traitements l'an prochain pour avoir des résultats comparables.
 
 Extraction des données d'interventions
 ****************************************
 On fait une extraction des données à cette adresse : https://dirif.akelio.com/intervention/list   
 **Télécharger fiches complètes**    période 1-11/2025   
-la table contient de nombreuse colonnes dont on garde la liste suivante : 'N° Inter DiRIF','CEI', "Date d'appel", "Heure d'appel","Origine de l'appel",'Axe', 'Sens','Localisation',  "Type d'intervention",
-            "Horaire d'arrivée sur le lieu d'intervention","Horaire du départ du lieu d'intervention"
+la table contient de nombreuse colonnes dont on garde la liste suivante : 
+
+* 'CEI', 
+* "Date d'appel", 
+* "Heure d'appel",
+* "Horaire d'arrivée sur le lieu d'intervention",
+* "Horaire du départ du lieu d'intervention"
+* "Origine de l'appel",
+* 'Axe', 
+* 'Sens',
+* 'Localisation',  
+* "Type d'intervention",
 
 On remplace les données manquantes par :
 
@@ -34,7 +48,7 @@ Dans le cas de SIRIUS, il y aura en général un seul événement.
 
 En dehors des doublons manifestes dont les principales caractéristiques sont identiques, on trouve les cas suivants :
 
-Même axe, même sens, même CEI, faible écart des heures  
+Même axe, même sens, même CEI, faible écart des heures d'appel  
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 On peut supposer qu'un écart des heures enregistées inférieur à 30 munutes, pour des intervenions du même CEI sur les mêmes axe et sens, traduit deux enregistrements de la même  intervention. 
 Quoi qu'il en soit la mise en relation avec SIRIUS ne pouvant pas se faire sur l'heure exacte, 
@@ -63,9 +77,29 @@ On trouve généralement cette situation avec des axes qui sont voisins :
 * A6a & A4b
 * A104 & N2
 
-On ne supprime pas ces doublons (environ 280), mais on s'attend à ce qu'un seul événement SIRIUS corresponde aux deux interventions.
+On ne supprime pas ces doublons (environ 280), mais on s'attend à ce qu'un seul événement SIRIUS corresponde aux deux interventions AGER.
 
-Ce sujet mériterait d'être clarifié avec les utilisateurs
+Ce sujet mériterait d'être clarifié avec les utilisateurs.
+
+Extraction des événements SIRIUS
+***********************************
+Les données SIRIUS sur les événements sont utilisées par Marc Koenig pour produire des statistiques publiées chaque mois.  
+Marc partage les fichiers mensuels sur COSMOSE au format Excel. Ces fichiers étant partiellement traités à la main, il peut y avoir des différences de format.
+Par exemple, pour le mois de juillet 2025, les données bruts sont sur la seconde feuille, laquelle porte le nom fueille 1 !  
+
+Les données étant produite par un système informatique et produite dans un but statistique, elle sont plus *propres* que les données d'intervention.
+
+Désignation des axes
+************************
+Certains axe ne sont pas désignés de la même manière par SIRIUS et les AGER, il faut dont établir une correspondance entre les noms SIRIUS et AGER, au moins pour les principaux axes dont les noms diffèrent.  
+
+Correspondance : [['A6A','A6a'],['A6B','A6b'],['N118N','N118'],['N104N','N104'],['A104N','A104'],['N_1104','N1104'],['N_1013','N1013'],['CD77N4','CD77'],['N186B','N186'] ]
+
+
+
+
+
+
 
 
 
